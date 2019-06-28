@@ -1,0 +1,4 @@
+<!-- 선언된 color들은 R.string으로 접근 가능 -->
+<resources>
+    <string name="app_name">android-skeleton-guide</string>
+</resources>

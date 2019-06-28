@@ -1,0 +1,47 @@
+//안드로이드 앱이기 위한 필수
+apply plugin: 'com.android.application'
+//kotlin
+apply plugin: 'kotlin-android'
+//findById 자동 - view id로 접근 가능
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    //sdk version
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.landvibe.project"
+        //최소 지원 버전
+        minSdkVersion 21
+        //sdk version
+        targetSdkVersion 28
+        //앱 버전 name은 노출용 code는 업데이트 시 점점 커져야 함
+        versionCode 1
+        versionName "1.0"
+        //test
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        //build별 설정 debug, release 등
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//라이브러리 선언
+dependencies {
+    //lib 폴더의 jar를 사용하기 위함
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //appcompat
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //layout
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    //test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //UI test
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
